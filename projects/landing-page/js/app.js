@@ -22,7 +22,7 @@
  * Define Global Variables
  * 
 */
-
+const sections = Array.from(document.querySelectorAll)
 
 /**
  * End Global Variables
