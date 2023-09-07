@@ -50,7 +50,7 @@ app.post('/addEntry', async  (req, res) => {
     const formdata = new FormData();
 
     formdata.append("key", process.env.API_KEY);
-    formdata.append("txt", req.body.text);
+    formdata.append("url", req.body.text);
     formdata.append("lang", "en");
     const requestOptions = {
         method: 'POST',
@@ -65,7 +65,7 @@ app.post('/addEntry', async  (req, res) => {
 
     
         const results = await data.json();
-        //console.log(results);
+        console.log(results);
         let polarity = ''
         if (results.score_tag == 'P+' | results.score_tag == 'P') {polarity = 'positive'}
         else if (results.score_tag == 'NEU') {polarity = 'neutral'}
@@ -75,7 +75,8 @@ app.post('/addEntry', async  (req, res) => {
         newEntry = {
             polarity: polarity,
             subjectivity: results.subjectivity,
-            text: req.body.text,
+            // text: req.body.text,
+            text:results.sentence_list[results.sentence_list.length-1].text
 
         }
         projectData.push(newEntry);
