@@ -27,7 +27,7 @@ const cors = require('cors');
 app.use(cors());
 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
+    res.sendFile(path.resolve('dist/index.html'))
     //res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
@@ -65,7 +65,7 @@ app.post('/addEntry', async  (req, res) => {
 
     
         const results = await data.json();
-        console.log(results);
+        //console.log(results);
         let polarity = ''
         if (results.score_tag == 'P+' | results.score_tag == 'P') {polarity = 'positive'}
         else if (results.score_tag == 'NEU') {polarity = 'neutral'}
