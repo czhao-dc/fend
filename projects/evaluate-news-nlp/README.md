@@ -1,6 +1,6 @@
 # Evaluate A News Article with Natural Language Processing
 
-The motive of this project is to build a web tool that allows users to run Natural Language Processing (NLP) on texts the user inputs. When a user submits texts, the web page then dispalys sentiment analysis returned from [meaningcloud API](https://www.meaningcloud.com/products/sentiment-analysis), based on the contents the user inputs.
+The motive of this project is to build a web tool that allows users to run Natural Language Processing (NLP) on texts in the webpages that the user inputs. When a user submits a url, the web page then dispalys sentiment analysis returned from [meaningcloud API](https://www.meaningcloud.com/products/sentiment-analysis), based on the contents from the webpages the user inputs.
 
 ## Build Tools
 * HTML
