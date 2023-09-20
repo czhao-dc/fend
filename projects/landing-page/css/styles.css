@@ -65,36 +65,91 @@ section {
 
 /* Navigation Styles*/
 .navbar__menu ul {
+    /* padding-left: 0;
+    margin: 0;
+    text-align: right; */
     padding-left: 0;
     margin: 0;
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar__menu li {
-    display: inline-block;
+    /* display: inline-block; */
+    display: none;
 }
 
-.navbar__menu .menu__link {
+.navbar__menu.active li {
     display: block;
-    padding: 1em;
-    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid lightgray;
+}
+
+.navbar__menu .menu__link a {
+    display: block;
+    padding: 0.75em;
     text-decoration: none;
     color: #000;
 }
 
-.navbar__menu .menu__link:hover {
+.toggle {
+    display: block;
+    text-align: right;
+    padding: 0.75em;
+}
+.toggle a {
+    color: black;
+}
+
+
+/* .navbar__menu .menu__link:hover {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
+} */
+
+@media only screen and (min-width: 35em){
+    .navbar__menu ul {
+        display: block;
+        text-align: right;
+    }
+    .navbar__menu li {
+        display: inline-block;
+    }
+    .navbar__menu .menu__link a {
+        display: inline-block;
+        padding: 1em;
+        font-weight: bold;
+    }
+    .navbar__menu .menu__link a:hover {
+        background: #333;
+        color: #fff;
+        transition: ease 0.3s all;
+    }
+    .toggle {
+        display: none;
+    }
+
 }
+
 
 /* Header Styles */
 .page__header {
     background: #fff;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     width: 100%;
     z-index: 5;
+}
+
+@media only screen and (min-width: 35em) {
+    .page__header {
+        position: fixed;
+    }
 }
 
 /* Footer Styles */
@@ -107,7 +162,6 @@ section {
 .page__footer p{
     color: #fff;
 }
-
 
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
@@ -193,7 +247,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
+/* section.your-active-class {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
@@ -206,8 +260,24 @@ section.your-active-class .landing__container::before {
 section.your-active-class .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
+} */
+section.your-active-class {
+    background-color: #FFE53B;
+    background-image: linear-gradient(313deg, #FFE53B 0%, #ff2571d8 74%);  
+}
+.menu__link.your-active-class {
+    background-color: #FFE53B;
 }
 
+section.your-active-class .landing__container::before {
+    opacity: 1;
+    animation: rotate 4s linear 0s infinite forwards;
+}
+
+section.your-active-class .landing__container::after {
+    opacity: 1;
+    animation: rotate 5s linear 0s infinite forwards reverse;
+}
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
 	from {
