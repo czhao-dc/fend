@@ -1,13 +1,26 @@
 # Landing Page Project
+This is the Landing Page project or Project 2 from the Udacity Front End Developer Nanodegree program. 
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Description](#description)
+* [Prerequisite](#prerequisite)
+* [Runtime-Environment](#runtime-environment)
 
-## Instructions
+## Description
+The goal of this project was to build a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page. 
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+**Specifications:**
+* Navigation is built dynamically as an unordered list.
+* It should be clear which section is being viewed while scrolling through the page.
+* When clicking an item from the navigation menu, the link should scroll to the appropriate section.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Prerequisite
+One needs to be able to run html, css and javascript files on their local machine.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Runtime Environment
+
+This project can be run locally in a browser, no need to have a running server.
+* Open web browser
+* File > Open File... > Locate index.html where this project was downloaded.
+* View and interact with the Landing page.
