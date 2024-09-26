@@ -75,7 +75,6 @@ app.get('/getCoordinate', (req,res) => {
 })
 
 app.get('/getWeather', (req,res) => {
-    console.log(req.query)
     if (req.query.days > 7) {
 
         var url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${req.query.lat}&lon=${req.query.lng}&key=9248ab371e6447ef96f76996e5639bf8`
@@ -123,3 +122,16 @@ app.get('/getPicture', (req,res) => {
     })
 })
 //https://api.weatherbit.io/v2.0/current?lat=48.85341&lon=2.3488&key=9248ab371e6447ef96f76996e5639bf8
+
+app.get('/getCountry', (req,res) => {
+
+    const API_KEY = 'a87449dde50bcf8ad74c5e8a8020a528';
+    const url = "https://api.countrylayer.com/v2/name/"+req.query.country+'?access_key='+API_KEY
+
+    axios.get(url,{ httpsAgent: agent }).then(resp => {
+        res.end(JSON.stringify(resp.data));
+    })
+    .catch(err => {
+        res.end(JSON.stringify({err : err}));
+    })
+})

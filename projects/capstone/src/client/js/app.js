@@ -9,7 +9,6 @@ let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 
-
 document.getElementById('generate')?.addEventListener('click', performAction);
 
 function performAction(e){
@@ -30,7 +29,6 @@ function performAction(e){
 
     function getDifferenceInDays(futureDate) {
       const today = new Date();
-      console.log(today,futureDate);
       const timeDifference = futureDate.getTime() - today.getTime();
       const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
     
@@ -49,8 +47,9 @@ function performAction(e){
     .then(function(data) {
       return getWeather(data.lat,data.lng, daysFromToday)
     }).then((weatherData) =>  {
-      console.log(weatherData);
-      updateUI(daysFromToday, weatherData)
+      getCountry(country).then(countryApiResults => 
+      updateUI(daysFromToday, weatherData, countryApiResults)
+      )
     }
   ).then(
       getPicture(city+', '+country)
@@ -69,8 +68,7 @@ const getCoordinate = async (city,country)=>{
       const data = await res.json();
       localStorage.setItem('lat', JSON.stringify(data.lat));
       localStorage.setItem('lng', JSON.stringify(data.lng));
-      console.log(data.lat,data.lng);
-      console.log(data);
+
       return data;
     }  catch(error) {
       console.log("error", error);
@@ -86,7 +84,7 @@ const getCoordinate = async (city,country)=>{
     try {
   
       const data = await res.json();
-      console.log(data)
+
       return data;
     }  catch(error) {
       console.log("error", error);
@@ -111,12 +109,11 @@ const getCoordinate = async (city,country)=>{
   }
 
 
-const updateUI = async (day, weather) =>{
+const updateUI = async (day, weather, country) =>{
     // const request = await fetch('/all');
     try {
-      console.log(weather);
+
       const dataID = day % 7;
-      console.log(dataID);
 
       if (day > 7) {
         let high_temp = weather['data'][dataID]['max_temp']
@@ -129,17 +126,13 @@ const updateUI = async (day, weather) =>{
         let weather_description = weather['data'][0]['weather']['description']
         var weather_str = 'Temperature: ' + temp + ' Weather: ' + weather_description;
       }
-    // Transform into JSON
-    // const allData = await request.json()
-    // console.log(allData)
-    // // Write updated data to DOM elements
-    // document.getElementById('temp').innerHTML = Math.round(allData[0].temp)+ 'degrees';
-    // document.getElementById('content').innerHTML = allData[0].content;
-    // document.getElementById('date').innerHTML =allData[0].date;
-    // document.getElementById('picture').innerHTML=url
+      const country_detail = "The capital of this country is " + country[0]['capital'];
+
       document.getElementById('temp').innerHTML = 'Your trip is ' + day + ' days from today'
-      // document.getElementById('date').innerHTML = 'High: ' + high_temp + ' Low: ' + low_temp + ' Weather: ' + weather_description;
+
       document.getElementById('date').innerHTML = weather_str;
+
+      document.getElementById('country').innerHTML = country_detail;
     }
     catch(error) {
       console.log('error', error);
@@ -147,6 +140,19 @@ const updateUI = async (day, weather) =>{
     }
    }
 
+
+   const getCountry = async (country)=>{
+
+    const res = await fetch(baseURL+`getCountry?country=${country}`);
+    try {
+  
+      const data = await res.json();
+      return data;
+    }  catch(error) {
+      console.log("error", error);
+      // appropriately handle the error
+    }
+  }
 
 
 const postData = async ( url = '', data = {})=>{
