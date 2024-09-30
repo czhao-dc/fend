@@ -8,21 +8,41 @@
 </head>
  <body>
 <div id = "app">
-  <div class ="holder headline">
+  <!-- <div class ="holder headline">
     Travel Plan App
-  </div>
+  </div> -->
+  <!-- <header class="holder headline"> -->
+  <header>
+
+    <!-- <img src="images/icon.png"/> -->
+    <div>Travel Planning App</div>
+    <nav>
+      <!-- <ul class="nav">
+        <a href="#" 
+        class="active">Home</a>
+        <a href="#">About</a>
+        <a href="#">Blogs</a>
+        <a href="#">Contact</a>
+      </ul> -->
+    </nav>
+  </header>
+
   <div class ="holder zip">
     <label for="zip">Enter City here</label>
     <input type="text" id="zip" placeholder="enter city name here">
   </div>
   <div>
+    <label for="departingDate">Enter Departure Date here</label>
     <input type="date" id="departingDate" name="departingDate">
   </div>
   <div class ="holder feel">
     <label for="feelings">Enter Country Name Here</label>
-    <textarea class= "myInput" id="feelings" placeholder="Enter country name here" rows="9" cols="50"></textarea>
+    <textarea class= "myInput" id="feelings" placeholder="Enter country name here" rows="2" cols="50"></textarea>
 
   </div>
+
+
+  <button id="generate" type = "submit"> Plan Trip </button>
 
   <div class ="holder entry">
     <div class = "title">Your Trip</div>
@@ -33,7 +53,6 @@
    <div id="picture"></div>
   </div>
   </div>
-  <button id="generate" type = "submit"> Plan Trip </button>
   </div>
 
   <script>
