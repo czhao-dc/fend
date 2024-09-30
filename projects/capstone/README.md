@@ -44,9 +44,9 @@ npm run test
 * HTML
 * SCSS
 * JS
-* Webpack
+* Webpack5
 * Babel
-* Node
+* Node (v20.17.0)
 
 ## Extra Feature Implemented
 
