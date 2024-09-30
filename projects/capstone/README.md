@@ -1,4 +1,4 @@
-# TravelOne App
+# Travel Planning App
 
 This is the Capstone project of the Udacity Frontend Nanodegree. It is a Traveller app which gives the weather and geographical information about the destination you want to travel.
 
