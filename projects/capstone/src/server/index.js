@@ -41,9 +41,9 @@ app.listen(port, () => {
 app.get('/all', function (req, res) {
     res.send(projectData)
   })
-  app.get('/test', (req, res) => {
-    res.send('HELLO FROM YELP CAMP')
-})
+// app.get('/test', (req, res) => {
+//     res.send('HELLO FROM YELP CAMP')
+// })
 app.post('/addEntry', addProjectData);
 
 function addProjectData (req, res) {
@@ -135,3 +135,14 @@ app.get('/getCountry', (req,res) => {
         res.end(JSON.stringify({err : err}));
     })
 })
+
+
+app.get('/test', async (req, res) => {
+    res.json({
+      status : 200
+    })
+  })
+
+
+
+module.exports = app;
